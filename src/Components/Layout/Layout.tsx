@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
-import "./layout.styled.css";
-import "./Header.styled.css";
-import SearchInput from "./SearchInput";
+import React, { useState } from "react";
+import "../styles/layout.styled.css";
+import "../styles/Header.styled.css";
 import { Video } from "./Types/Video.types";
 import VideoCard from "./VideoCard";
 import MdLogo from "./Assets/YouTube-Icon-White-Logo.wine.svg";
 import api from "src/api";
+import SearchInput from "./SearchInput";
 
 const Layout = () => {
   const LgLogo =
     "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg";
 
   const [videos, setVideos] = useState<Video>();
+  const [term, setTerm] = useState<string>("");
 
   const handleSubmit = async (termFromSearchBar: string) => {
     const response = await api.get("/search", {
@@ -21,16 +22,17 @@ const Layout = () => {
     });
     setVideos(response.data);
   };
-  useEffect(() => {
-    handleSubmit("spongbob");
-  }, []);
 
   return (
     <React.Fragment>
       <div className="header_container">
         <img className="logo" src={LgLogo} alt="logo" />
         <img className="md_logo" src={MdLogo} alt="logo" />
-        <SearchInput />
+        <SearchInput
+          term={term}
+          setTerm={setTerm}
+          handleSubmit={handleSubmit}
+        />
       </div>
       <div className="wrapper">
         {videos?.items?.map((item, index) => (
