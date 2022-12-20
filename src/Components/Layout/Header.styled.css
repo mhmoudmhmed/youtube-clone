@@ -5,7 +5,7 @@
 :focus {
   outline: none;
 }
-.container {
+.header_container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,6 @@
   background: #c4302b;
 }
 
-/*logo style*/
 .logo {
   display: none;
 }
@@ -22,7 +21,6 @@
   display: block;
 }
 
-/*search style*/
 .search-bar {
   line-height: 3.5rem;
   position: relative;
@@ -72,14 +70,12 @@ button:hover {
 
 /* media query */
 @media (min-width: 768px) {
-  .container {
+  .header_container {
     width: 60%;
     margin: auto;
-    background: transparent;
-    margin-top: 2rem;
+    background: #fff;
     justify-content: space-between;
   }
-  /* logo media query */
   .logo {
     width: 6.25rem;
     display: block;
@@ -87,7 +83,6 @@ button:hover {
   .md_logo {
     display: none;
   }
-  /* ssearch input media query */
   .search-bar {
     width: 55%;
     line-height: 3.5rem;

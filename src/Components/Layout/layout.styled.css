@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  margin: unset;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    margin: auto;
+    width: 60%;
+  }
+}
