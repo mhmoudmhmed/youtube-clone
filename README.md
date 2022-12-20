@@ -1,10 +1,25 @@
 # Youtube clone with youtube search Api
 
-In the project directory, you can run:
+Installation and Setup Instructions
+Example:
+## Clone down this repository. You will need node and npm installed globally on your machine.
+
+Installation:
+
+### `npm install`
+## or
+### `yarn`
+
+To Run Test Suite:
+
+### `npm test`
+
+To Start Server:
 
 ### `npm start`
 ## or
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To Visit App:
+
+### localhost:3000
