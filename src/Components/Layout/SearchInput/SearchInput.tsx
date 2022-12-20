@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useSearchParams } from "react-router-dom";
 
 type Props = {
   term: string;
@@ -7,14 +8,18 @@ type Props = {
 };
 
 const SearchInput: FC<Props> = ({ term, setTerm, handleSubmit }) => {
+  const [params, setParams] = useSearchParams();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setTerm(e.target.value);
   };
 
   const handleFormSubmit = (event: any) => {
     event.preventDefault();
     handleSubmit(term);
+    if (term) {
+      params.set(`?search_query`, term);
+      setParams(params);
+    }
   };
 
   return (
@@ -23,7 +28,9 @@ const SearchInput: FC<Props> = ({ term, setTerm, handleSubmit }) => {
         <input
           type="text"
           placeholder="Search"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            handleChange(e);
+          }}
         />
         <button>
           <span className="material-symbols">search</span>
