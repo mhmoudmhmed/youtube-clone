@@ -6,8 +6,10 @@ import VideoCard from "./VideoCard";
 import MdLogo from "./Assets/YouTube-Icon-White-Logo.wine.svg";
 import api from "src/api";
 import SearchInput from "./SearchInput";
+import PageLoader from "./Loading/LoadingSpinner";
 
 const Layout = () => {
+  const [loading, setLoading] = useState<boolean>(false);
   const LgLogo =
     "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg";
 
@@ -15,12 +17,19 @@ const Layout = () => {
   const [term, setTerm] = useState<string>("");
 
   const handleSubmit = async (termFromSearchBar: string) => {
-    const response = await api.get("/search", {
-      params: {
-        q: termFromSearchBar,
-      },
-    });
-    setVideos(response.data);
+    setLoading(true);
+    await api
+      .get("/search", {
+        params: {
+          q: termFromSearchBar,
+        },
+      })
+      .then((res) => {
+        if (res.request.status === 200) {
+          setVideos(res.data);
+          setLoading(false);
+        }
+      });
   };
 
   return (
@@ -34,16 +43,26 @@ const Layout = () => {
           handleSubmit={handleSubmit}
         />
       </div>
-      <div className="wrapper">
-        <div className="total_resluts">
-          <p className="total">About {videos?.pageInfo.totalResults} results</p>
-        </div>
-        {videos?.items?.map((item, index) => (
-          <div className="card" key={index}>
-            <VideoCard item={item.snippet} />
+      {loading ? (
+        <PageLoader />
+      ) : (
+        <div className="wrapper">
+          <div className="total_resluts">
+            {!videos?.pageInfo.totalResults ? (
+              ""
+            ) : (
+              <p className="total">
+                About {videos?.pageInfo.totalResults} results
+              </p>
+            )}
           </div>
-        ))}
-      </div>
+          {videos?.items?.map((item, index) => (
+            <div className="card" key={index}>
+              <VideoCard item={item.snippet} />
+            </div>
+          ))}
+        </div>
+      )}
     </React.Fragment>
   );
 };

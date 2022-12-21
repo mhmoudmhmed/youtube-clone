@@ -14,6 +14,7 @@ img {
   padding-top: unset;
   background: transparent;
   padding-bottom: 3rem;
+  overflow: hidden;
 }
 
 .wrapper .card {
@@ -40,6 +41,7 @@ img {
     padding-top: 1rem;
     background: #fafafa;
     min-height: 100vh;
+    overflow: auto;
   }
   .wrapper .card {
     width: 60%;
