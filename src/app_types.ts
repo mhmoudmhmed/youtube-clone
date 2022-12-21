@@ -1,4 +1,4 @@
-import { Video } from "./Components/Layout/Types/Video.types";
+import { Video } from "./Components/Types/Video.types";
 
 export interface InitialState {
   data: Video;

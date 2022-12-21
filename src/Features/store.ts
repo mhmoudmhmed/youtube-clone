@@ -1,4 +1,4 @@
-import { Video } from "src/Components/Layout/Types/Video.types";
+import { Video } from "src/Components/Types/Video.types";
 // import searchData from "./searchData/getSearchData.request"
 
 export interface RootState {
