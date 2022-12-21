@@ -29,11 +29,24 @@ img {
   margin-bottom: unset;
   padding-bottom: 1rem;
   border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .wrapper .total_resluts .total {
   font-size: 0.8rem;
   color: #000;
   font-weight: 600;
+}
+.filter_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #969198;
+  font-weight: 600;
+  gap: 0.4rem;
+  font-size: 0.8rem;
 }
 
 @media (min-width: 768px) {
@@ -57,5 +70,8 @@ img {
   }
   .wrapper .total_resluts .total {
     font-size: 1.25rem;
+  }
+  .filter_container {
+    font-size: 1rem;
   }
 }

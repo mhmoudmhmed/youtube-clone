@@ -33,7 +33,7 @@ const SearchInput: FC<Props> = ({ term, setTerm, handleSubmit }) => {
           }}
         />
         <button>
-          <span className="material-symbols">search</span>
+          <span className="material-symbols-outlined">search</span>
         </button>
       </form>
     </div>

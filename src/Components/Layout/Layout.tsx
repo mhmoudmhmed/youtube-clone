@@ -51,9 +51,15 @@ const Layout = () => {
             {!videos?.pageInfo.totalResults ? (
               ""
             ) : (
-              <p className="total">
-                About {videos?.pageInfo.totalResults} results
-              </p>
+              <>
+                <p className="total">
+                  About {videos?.pageInfo.totalResults} results
+                </p>
+                <div className="filter_container">
+                  <span className="material-symbols-outlined">filter_list</span>
+                  <p>filter</p>
+                </div>
+              </>
             )}
           </div>
           {videos?.items?.map((item, index) => (
