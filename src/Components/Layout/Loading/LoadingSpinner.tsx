@@ -1,11 +1,11 @@
 import React from "react";
-import { RingSpinner } from "react-spinners-kit";
+import { ClapSpinner } from "react-spinners-kit";
 import "./loading.styled.css";
 
 const PageLoader = () => {
   return (
     <div className="loading">
-      <RingSpinner sizeUnit="rem" color="#a8a8a8" size={4} />
+      <ClapSpinner sizeUnit="rem" frontColor="#a8a8a8" size={1} />
       <p className="text">loading</p>
     </div>
   );
