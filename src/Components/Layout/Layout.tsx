@@ -3,7 +3,7 @@ import "../styles/layout.styled.css";
 import "../styles/Header.styled.css";
 import { Video } from "../Types/Video.types";
 import VideoCard from "../VideoCard";
-import MdLogo from "./Assets/YouTube-Icon-White-Logo.wine.svg";
+import MdLogo from "../Assets/YouTube-Icon-White-Logo.wine.svg";
 import api from "src/api";
 import SearchInput from "../SearchInput";
 import PageLoader from "../Loading/LoadingSpinner";
