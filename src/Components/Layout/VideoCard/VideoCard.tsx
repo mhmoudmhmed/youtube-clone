@@ -17,12 +17,18 @@ const VideoCard: FC<Props> = ({ item }) => {
       />
       <div className="video_info">
         <div>
-          <p className="title">{item?.title}</p>
+          <p
+            className="title"
+            dangerouslySetInnerHTML={{ __html: item.channelTitle }}
+          />
           <div className="info">
             <span>{item.channelTitle}</span>
           </div>
         </div>
-        <p className="description"> {item?.description} </p>
+        <p
+          className="description"
+          dangerouslySetInnerHTML={{ __html: item.description }}
+        />
       </div>
     </div>
   );

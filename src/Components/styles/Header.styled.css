@@ -8,7 +8,7 @@
 .header_container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   background: #c4302b;
 }
@@ -19,6 +19,7 @@
 .md_logo {
   width: 4.25rem;
   display: block;
+  height: auto;
 }
 
 .search-bar {
@@ -74,11 +75,12 @@ button:hover {
     width: 60%;
     margin: auto;
     background: #fff;
-    justify-content: space-between;
+    margin-top: 1rem;
   }
   .logo {
     width: 6.25rem;
     display: block;
+    height: auto;
   }
   .md_logo {
     display: none;

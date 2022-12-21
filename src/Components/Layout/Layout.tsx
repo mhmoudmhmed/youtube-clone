@@ -35,8 +35,11 @@ const Layout = () => {
         />
       </div>
       <div className="wrapper">
+        <div className="total_resluts">
+          <p className="total">About {videos?.pageInfo.totalResults} results</p>
+        </div>
         {videos?.items?.map((item, index) => (
-          <div key={index}>
+          <div className="card" key={index}>
             <VideoCard item={item.snippet} />
           </div>
         ))}

@@ -3,7 +3,8 @@
   align-items: flex-start;
   gap: 0.8rem;
 }
-img {
+
+.card_wrapper img {
   width: 100px;
   height: 100px;
 }
@@ -40,7 +41,6 @@ img {
   font-size: 0.75rem;
   font-weight: 600;
   white-space: pre-wrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   max-width: 200px;
 }
@@ -48,25 +48,25 @@ img {
   .card_wrapper {
     gap: 1rem;
   }
-  img {
+  .card_wrapper img {
     width: 200px;
     height: 200px;
     border-radius: 8px;
   }
-  .title {
+  .card_wrapper .title {
     font-size: 1.25rem;
     margin-bottom: 0.2rem;
     max-width: fit-content;
   }
-  .info {
+  .card_wrapper .info {
     font-size: 1rem;
     gap: 0.3rem;
   }
-  .video_info {
+  .card_wrapper .video_info {
     gap: 0.8rem;
   }
-  .description {
+  .card_wrapper .description {
     font-size: 1rem;
-    max-width: fit-content;
+    max-width: 80%;
   }
 }
