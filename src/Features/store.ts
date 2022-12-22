@@ -1,10 +1,15 @@
-import { Video } from "src/Components/Types/Video.types";
-// import searchData from "./searchData/getSearchData.request"
+import { configureStore } from "@reduxjs/toolkit";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import dataReducer from "./Reducer/Reducer";
 
-export interface RootState {
-    data: Video
-}
+export const store = configureStore({
+  reducer: {
+    data: dataReducer,
+  },
+});
 
-const rootReducer = {
-    // searchData
-}
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

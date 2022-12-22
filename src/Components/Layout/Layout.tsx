@@ -1,35 +1,27 @@
 import React, { useState } from "react";
 import "../styles/layout.styled.css";
 import "../styles/Header.styled.css";
-import { Video } from "../Types/Video.types";
 import VideoCard from "../VideoCard";
 import MdLogo from "../Assets/YouTube-Icon-White-Logo.wine.svg";
-import api from "src/api";
 import SearchInput from "../SearchInput";
 import PageLoader from "../Loading/LoadingSpinner";
+import { useAppDispatch, useAppSelector } from "src/Features/store";
+import { fetchData } from "src/Features/Reducer/Reducer";
 
 const Layout = () => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+
   const LgLogo =
     "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg";
 
-  const [videos, setVideos] = useState<Video>();
   const [term, setTerm] = useState<string>("");
 
+  const { item, loading } = useAppSelector((state) => state.data);
+
   const handleSubmit = async (termFromSearchBar: string) => {
-    setLoading(true);
-    await api
-      .get("/search", {
-        params: {
-          q: termFromSearchBar,
-        },
-      })
-      .then((res) => {
-        if (res.request.status === 200) {
-          setVideos(res.data);
-          setLoading(false);
-        }
-      });
+    if (termFromSearchBar) {
+      dispatch(fetchData(termFromSearchBar));
+    }
   };
 
   return (
@@ -48,12 +40,12 @@ const Layout = () => {
       ) : (
         <div className="wrapper">
           <div className="total_resluts">
-            {!videos?.pageInfo.totalResults ? (
+            {!item?.pageInfo.totalResults ? (
               ""
             ) : (
               <>
                 <p className="total">
-                  About {videos?.pageInfo.totalResults} results
+                  About {item?.pageInfo.totalResults} results
                 </p>
                 <div className="filter_container">
                   <span className="material-symbols-outlined">filter_list</span>
@@ -62,7 +54,7 @@ const Layout = () => {
               </>
             )}
           </div>
-          {videos?.items?.map((item, index) => (
+          {item?.items?.map((item, index) => (
             <div className="card" key={index}>
               <VideoCard item={item.snippet} />
             </div>
