@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "../styles/layout.styled.css";
 import "../styles/Header.styled.css";
 import VideoCard from "../VideoCard";
@@ -7,10 +7,11 @@ import SearchInput from "../SearchInput";
 import PageLoader from "../Loading/LoadingSpinner";
 import { useAppDispatch, useAppSelector } from "src/Features/store";
 import { fetchData } from "src/Features/Reducer/Reducer";
+import { useNavigate } from "react-router-dom";
 
 const Layout = () => {
   const dispatch = useAppDispatch();
-
+  const history = useNavigate();
   const LgLogo =
     "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg";
 
@@ -21,6 +22,12 @@ const Layout = () => {
       dispatch(fetchData(termFromSearchBar));
     }
   };
+
+  useEffect(() => {
+    if (performance.navigation.type == 1) {
+      history("/");
+    }
+  }, [performance.navigation.type]);
 
   return (
     <React.Fragment>
