@@ -23,6 +23,7 @@ const Layout = () => {
     }
   };
 
+  /// navigate to main path after refresh
   useEffect(() => {
     if (performance.navigation.type == 1) {
       history("/");
