@@ -17,7 +17,7 @@ const SearchInput: FC<Props> = ({ term, setTerm, handleSubmit }) => {
     event.preventDefault();
     handleSubmit(term);
     if (term) {
-      params.set(`?search_query`, term);
+      params.set(`search_query`, term);
       setParams(params);
     }
   };
