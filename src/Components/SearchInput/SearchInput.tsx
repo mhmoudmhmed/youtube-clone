@@ -1,13 +1,12 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 type Props = {
-  term: string;
-  setTerm: any;
   handleSubmit: (termFromSearchBar: string) => Promise<void>;
 };
 
-const SearchInput: FC<Props> = ({ term, setTerm, handleSubmit }) => {
+const SearchInput: FC<Props> = ({ handleSubmit }) => {
+  const [term, setTerm] = useState<string>("");
   const [params, setParams] = useSearchParams();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTerm(e.target.value);

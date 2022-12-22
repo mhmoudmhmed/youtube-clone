@@ -14,8 +14,6 @@ const Layout = () => {
   const LgLogo =
     "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg";
 
-  const [term, setTerm] = useState<string>("");
-
   const { item, loading } = useAppSelector((state) => state.data);
 
   const handleSubmit = async (termFromSearchBar: string) => {
@@ -29,11 +27,7 @@ const Layout = () => {
       <div className="header_container">
         <img className="logo" src={LgLogo} alt="logo" />
         <img className="md_logo" src={MdLogo} alt="logo" />
-        <SearchInput
-          term={term}
-          setTerm={setTerm}
-          handleSubmit={handleSubmit}
-        />
+        <SearchInput handleSubmit={handleSubmit} />
       </div>
       {loading ? (
         <PageLoader />
