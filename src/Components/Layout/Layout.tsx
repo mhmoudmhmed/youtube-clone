@@ -32,10 +32,12 @@ const Layout = () => {
 
   return (
     <React.Fragment>
-      <div className="header_container">
-        <img className="logo" src={LgLogo} alt="logo" />
-        <img className="md_logo" src={MdLogo} alt="logo" />
-        <SearchInput handleSubmit={handleSubmit} />
+      <div className="header_wrapper">
+        <div className="header_container">
+          <img className="logo" src={LgLogo} alt="logo" />
+          <img className="md_logo" src={MdLogo} alt="logo" />
+          <SearchInput handleSubmit={handleSubmit} />
+        </div>
       </div>
       {loading ? (
         <PageLoader />

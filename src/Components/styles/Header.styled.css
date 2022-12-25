@@ -11,8 +11,13 @@
   justify-content: space-between;
   width: 100%;
   background: #c4302b;
+  margin-top: 0;
 }
-
+.header_wrapper {
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
 .logo {
   display: none;
 }
@@ -76,6 +81,9 @@ button:hover {
     margin: auto;
     background: #fff;
     margin-top: 1rem;
+  }
+  .header_wrapper {
+    position: relative;
   }
   .logo {
     width: 6.25rem;
